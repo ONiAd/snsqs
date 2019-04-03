@@ -83,6 +83,7 @@ class SnsQsConsumer implements Consumer
         $message = $this->context->createMessage();
         $message->setRedelivered($sqsMessage->isRedelivered());
         $message->setSqsMessage($sqsMessage);
+        $message->setHeaders($sqsMessage->getHeaders());
 
         $body = $sqsMessage->getBody();
 
